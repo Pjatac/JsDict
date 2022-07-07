@@ -2,7 +2,7 @@ let dict = [];
 let newDictInfo;
 let selectedImageIndex;
 let imagesToSelectRefs = [];
-let navLinks = ['home', 'select', 'learn', 'add'];
+let navLinks = ['home', 'select', 'learn', 'add', 'show'];
 let currentDict;
 let rightAnswerPos = 0;
 let questionId = 0;
@@ -65,8 +65,8 @@ async function getAllList() {
         else {
             data.forEach(d => {
                 $('#dictsList').append(`<button id="${d._id}" class="btn btn-primary">Author: ${d.author} Name: ${d.name} We learn ${d.from} on ${d.to}</button>`);
-                $(`#${d._id}`).on('click', function () {
-                    startLearningLoaded(d._id);
+                $(`#${d._id}`).on('click', async () => {
+                    await startLearningLoaded(d._id);
                 });
             });
             $('#dictsList').removeClass("d-none");
@@ -98,8 +98,8 @@ async function getSearched(searchPath) {
         else {
             data.forEach(d => {
                 $('#dictsList').append(`<button id="${d._id}" class="btn btn-primary">Author: ${d.author} Name: ${d.name} We learn ${d.from} on ${d.to}</button>`);
-                $(`#${d._id}`).on('click', function () {
-                    startLearningLoaded(d._id);
+                $(`#${d._id}`).on('click', async () => {
+                    await startLearningLoaded(d._id);
                 });
             });
             $('#dictsList').removeClass("d-none");
