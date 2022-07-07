@@ -44,22 +44,6 @@ request.onupgradeneeded = function (event) {
     db.createObjectStore("image");
 }
 
-// function getImage(key) {
-//     return new Promise((resolve, reject) => {
-//         var transaction = db.transaction(["image"]);
-//         var objectStore = transaction.objectStore("image");
-//         var request = objectStore.get(key);
-
-//         request.onerror = function (event) {
-//             reject(() => alert("Unable to retrieve data from database!"));
-//         };
-
-//         request.onsuccess = function (event) {
-//             resolve(request.result.value);
-//         };
-//     })
-// }
-
 async function getAllList() {
     $('#dictsList').empty();
     let requestPath = `${srvURL}getAll`;
@@ -412,10 +396,6 @@ async function fillImages(from, to, words) {
         let storedImg = await imgFromStorage(word.key(0), from);
         if (storedImg == null || storedImg == undefined) {
             let request = JSON.stringify({ [from]: word.key(0), [to]: word.key(1) });
-            // let imageDataId = await getImageFromUser(request);
-            // console.log(imageDataId);
-            // let imageDataUrl = imagesToSelectRefs[imageDataId];
-            // await imgToStorage(word.key(0), from, imageDataUrl);
             let imageDataId = await getImageFromUser(request);
             let imgSrc = imagesToSelectRefs[imageDataId].data;
             if (imagesToSelectRefs[imageDataId].imageRef) {
@@ -426,10 +406,7 @@ async function fillImages(from, to, words) {
                 let compressedData = await loadImgStr64(imgSrc);
                 await imgToStorage(word.key(0), from, compressedData);
             }
-
             $('#imageSelectButton').off('click');
-            //await saveImageOnServer(word, image);
-            //await addImage(`img-${from}-${word.key(0)}`, imageData);
         }
     }
     $('#spinner').addClass('d-none');
@@ -445,11 +422,6 @@ async function getImageFromUser(word) {
         let image = document.createElement("img");
         image.width = 100;
         image.className = 'ui-widget-content';
-        // image.onerror = async () => {
-        //     let data = await getImageDataFromServerByUrl(sourceUrl);
-        //     image.src = data;
-        //     imagesContainer.append(image);
-        // }
         image.onload = () => {
             imagesContainer.append(image);
         }
@@ -695,16 +667,6 @@ async function finishAndStart() {
             await startLearningLoaded(result.id);
             newDictInfo = [];
         }
-
-
-        // let list = $('#wordList');
-        // list.addClass('d-none');
-        // list.empty();
-        // $('#newWord').addClass('d-none');
-        // $('#finishAndStart').addClass('d-none');
-        // $('#startFullfillButton').removeClass('d-none');
-        // startLearning();
-        // goToTab('learn');
     }
 }
 
