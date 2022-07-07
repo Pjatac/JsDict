@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "DictionaryServer",
+  "main": "app.js",
+  "module": "module",
+  "scripts": {
+    "start": "nodemon app.js",
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pjatak",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "googlethis": "^1.2.6",
+    "images-scraper": "^6.4.0",
+    "microsoft-cognitiveservices-speech-sdk": "^1.19.0",
+    "mongoose": "^6.0.13",
+    "node-base64-image": "^2.0.4",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2"
+  }
+}
