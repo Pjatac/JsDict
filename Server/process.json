@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "server",
+      "script": "./app.js",
+      "node_args": "-r nodemon",
+      "watch": "./*.js",
+      "instances": "1",
+      "exec_mode": "fork",
+      "watch_options": {
+        "persistent": true,
+        "ignoreInitial": false
+      }
+    }
+  ]
+}

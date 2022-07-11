@@ -115,7 +115,7 @@ async function startLearningLoaded(id) {
     let loadModal = $('<div>').dialog({ modal: true });
     loadModal.dialog('widget').hide();
     setProgress();
-    $('#select').addClass("d-none");
+    //$('#select').addClass("d-none");
     goToTab('learn');
     let requestPath = `${srvURL}getById?id=${id}`;
     let settings = {
@@ -287,7 +287,7 @@ async function readFile(e) {
         reader.onload = async (e) => {
             let dictMap = new Map();
             let rawDictData = e.target.result;
-            let dictData = rawDictData.split('\r');
+            let dictData = rawDictData.split(/\r\n|\r|\n/); // Lin—"\n", Mac—"\r", MS—"\r\n", RegEx— 4All OS
             dictData = dictData.filter(str => str != '');
             let newDict = [];
             if (dictData.length < 4) {
@@ -469,12 +469,12 @@ async function getImages(word) {
 function goToTab(navLink) {
     navLinks.forEach(link => {
         if (link == navLink) {
-            $(`#${link}`).removeClass("d-none");
+           // $(`#${link}`).removeClass("d-none");
             $(`.${link}`).addClass('text-decoration-underline');
             $(`.${link}`).parent().removeClass('active');
         }
         else {
-            $(`#${link}`).addClass("d-none");
+           // $(`#${link}`).addClass("d-none");
             $(`.${link}`).removeClass('text-decoration-underline');
             $(`.${link}`).parent().addClass('active');
         }
@@ -483,7 +483,7 @@ function goToTab(navLink) {
 
 function startLearning() {
     setProgress();
-    $('#select').addClass("d-none");
+    //$('#select').addClass("d-none");
     $('.learn').removeClass('disabled');
     goToTab('learn');
     $('#dictTitle').text(`Your current learning dictionary: ${currentDict.name}`);

@@ -1,3 +1,4 @@
+/*
 .container {
     display: flex;
     width: 80%;
@@ -8,6 +9,7 @@
     row-gap: 1em;
     margin: auto;
 }
+ */
 
 .new-word-container {
   display: flex;
