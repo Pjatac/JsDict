@@ -115,7 +115,7 @@ async function startLearningLoaded(id) {
     let loadModal = $('<div>').dialog({ modal: true });
     loadModal.dialog('widget').hide();
     setProgress();
-    //$('#select').addClass("d-none");
+    //$('#select').addClass("d-none"); ///ean
     goToTab('learn');
     let requestPath = `${srvURL}getById?id=${id}`;
     let settings = {
@@ -469,12 +469,12 @@ async function getImages(word) {
 function goToTab(navLink) {
     navLinks.forEach(link => {
         if (link == navLink) {
-           // $(`#${link}`).removeClass("d-none");
+            //$(`#${link}`).removeClass("d-none"); ///ean
             $(`.${link}`).addClass('text-decoration-underline');
             $(`.${link}`).parent().removeClass('active');
         }
         else {
-           // $(`#${link}`).addClass("d-none");
+            //$(`#${link}`).addClass("d-none"); ///ean
             $(`.${link}`).removeClass('text-decoration-underline');
             $(`.${link}`).parent().addClass('active');
         }
@@ -483,7 +483,7 @@ function goToTab(navLink) {
 
 function startLearning() {
     setProgress();
-    //$('#select').addClass("d-none");
+    //$('#select').addClass("d-none"); ///ean
     $('.learn').removeClass('disabled');
     goToTab('learn');
     $('#dictTitle').text(`Your current learning dictionary: ${currentDict.name}`);
@@ -604,8 +604,10 @@ function startFullfill() {
     currentState = 'newOnSite';
     $('#startFullfillButton').addClass('d-none');
     $('#finishAndStart').removeClass('d-none');
+    $('#finishAndStart').addClass('d-block');
     $('#newWord').removeClass('d-none');
     $('#wordList').removeClass('d-none');
+    $('#wordList').addClass('d-flex');
 }
 
 async function validateNewDictTitle(title) {

@@ -60,11 +60,12 @@
             <span class="visually-hidden">Loading...</span>
         </div>
 
-        <section class="container text-center mt-4">
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active show">
+        <div class="tab-content">
+
+            <div id="home" class="tab-pane fade in active show">
+                <div class="container text-center mt-4">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8 mx-auto">
+                        <div class="col-auto mx-auto">
                             <h1>Dictionary trainer</h1>
                             <p class="border border-primary lead text-muted p-3">
                                 This app is designed to make it easier to learn word sets in a new language. You can either use ready-made
@@ -73,244 +74,198 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-
-                <div id="select" class="tab-pane fade in">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-8 mx-auto">
-                            <form id='findForm'>
-                                <div class="container">
-                                    <div class="form-group">
-                                        <div class="row mb-3 align-items-center">
-                                            <div class="col-4">
-                                                <label for="findFormAuthor" class="col-form-label">Fill author</label>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" id="findFormAuthor" class="form-control" name="author">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row mb-3 align-items-center">
-                                            <div class="col-4">
-                                                <label for="findFormName" class="col-form-label">Fill name</label>
-                                            </div>
-                                            <div class="col-8">
-                                                <input type="text" id="findFormName" class="form-control" name="name">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row mb-3 align-items-center">
-                                            <div class="col-4">
-                                                <label for="findFormLangFrom" class="col-form-label">Language from</label>
-                                            </div>
-                                            <div class="col-8">
-                                                <select id="findFormLangFrom" class="form-control" name="from">
-                                                    <option></option>
-                                                    <option>English</option>
-                                                    <option>France</option>
-                                                    <option>Hebrew</option>
-                                                    <option>Spain</option>
-                                                    <option>Russian</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row mb-3 align-items-center">
-                                            <div class="col-4">
-                                                <label for="findFormLangTo" class="col-form-label">Language to</label>
-                                            </div>
-                                            <div class="col-8">
-                                                <select id="findFormLangTo" class="form-control" name="to">
-                                                    <option></option>
-                                                    <option>English</option>
-                                                    <option>France</option>
-                                                    <option>Hebrew</option>
-                                                    <option>Spain</option>
-                                                    <option>Russian</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div id="select" class="tab-pane fade in">
+                <div class="container text-center mt-4">
+                    <form id='findForm' class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="row mb-3">
+                                <label for="findFormAuthor" class="col-5 col-form-label">Fill author</label>
+                                <div class="col-7">
+                                    <input type="text" id="findFormAuthor" class="form-control" name="author">
                                 </div>
-                                <button type="submit" class="btn btn-primary" id="findButton">Find</button>
-                            </form>
-                            <div id='dictsList' class="d-none container mt-1 mb-5"></div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="row mb-3">
+                                <label for="findFormName" class="col-5 col-form-label">Fill name</label>
+                                <div class="col-7">
+                                    <input type="text" id="findFormName" class="form-control" name="name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="row mb-3">
+                                <label for="findFormLangFrom" class="col-5 col-form-label">Language from</label>
+                                <div class="col-7">
+                                    <select id="findFormLangFrom" class="form-select" name="from">
+                                        <option></option>
+                                        <option>English</option>
+                                        <option>France</option>
+                                        <option>Hebrew</option>
+                                        <option>Spain</option>
+                                        <option>Russian</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="row mb-3">
+                                <label for="findFormLangTo" class="col-5 col-form-label">Language to</label>
+                                <div class="col-7">
+                                    <select id="findFormLangTo" class="form-select" name="to">
+                                        <option></option>
+                                        <option>English</option>
+                                        <option>France</option>
+                                        <option>Hebrew</option>
+                                        <option>Spain</option>
+                                        <option>Russian</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mx-auto w-auto" id="findButton">Find</button>
+                    </form>
+                    <div id='dictsList' class="d-none row mt-3 flex-column"></div>
                 </div>
+            </div>
 
                 <div id="add" class="tab-pane fade in">
-                    <span id="addSelection">
+                    <div id="addSelection" class="hstack gap-3 justify-content-center">
                         <!-- <button type="button" class="btn btn-primary btn-sm" onclick="getDictFromFileAndLearn()">Load from txt and
                             learn</button> -->
                         <button type="button" class="btn btn-primary btn-sm" onclick="getDictFromFileAndAdd()">Load from txt and add
                             to DB</button>
                         <button type="button" class="btn btn-primary btn-sm" onclick="fillNewDict()">Fill there</button>
                         <input type="file" class="form-control d-none" id="dictFileLoad" onchange="readFile(event)" />
-                    </span>
-
-                    <div id="fillNewLoadDict" class="d-none">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-8 mx-auto">
-                                <form id='newLoadDictTitle'>
-                                    <div class="container">
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="FormAuthor" class="col-form-label">Fill author</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" id="FormAuthor" class="form-control" name="author">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="formDictNamer" class="col-form-label">Fill dict name</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" id="formDictNamer" class="form-control" name="name">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="FormLangFrom" class="col-form-label">Language from</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <select id="FormLangFrom" class="form-control" name="from">
-                                                        <option>English</option>
-                                                        <option>France</option>
-                                                        <option>Hebrew</option>
-                                                        <option>Spain</option>
-                                                        <option>Russian</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="FormLangTo" class="col-form-label">Language to</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <select id="FormLangTo" class="form-control" name="to">
-                                                        <option>English</option>
-                                                        <option>France</option>
-                                                        <option>Hebrew</option>
-                                                        <option>Spain</option>
-                                                        <option>Russian</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" id="startLoadButton">Load</button>
-                                </form>
-                            </div>
-                        </div>
                     </div>
 
-                    <div id="fillNewDict" class="d-none">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-8 mx-auto">
-                                <form id='newDictTitle'>
-                                    <div class="container">
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="FormAuthor" class="col-form-label">Fill author</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" id="FormAuthor" class="form-control" name="author">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="formDictNamer" class="col-form-label">Fill dict name</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" id="formDictNamer" class="form-control" name="name">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="FormLangFrom" class="col-form-label">Language from</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <select id="FormLangFrom" class="form-control" name="from">
-                                                        <option>English</option>
-                                                        <option>France</option>
-                                                        <option>Hebrew</option>
-                                                        <option>Spain</option>
-                                                        <option>Russian</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="FormLangTo" class="col-form-label">Language to</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <select id="FormLangTo" class="form-control" name="to">
-                                                        <option>English</option>
-                                                        <option>France</option>
-                                                        <option>Hebrew</option>
-                                                        <option>Spain</option>
-                                                        <option>Russian</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                    <div id="fillNewLoadDict" class="d-none container text-center mt-4">
+                        <form id='newLoadDictTitle' class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                    <label for="FormAuthor" class="col-5 col-form-label">Fill author</label>
+                                    <div class="col-7">
+                                        <input type="text" id="FormAuthor" class="form-control" name="author">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                    <label for="formDictNamer" class="col-5 col-form-label">Fill dict name</label>
+                                    <div class="col-7">
+                                        <input type="text" id="formDictNamer" class="form-control" name="name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                    <label for="FormLangFrom" class="col-5 col-form-label">Language from</label>
+                                    <div class="col-7">
+                                        <select id="FormLangFrom" class="form-select" name="from">
+                                            <option>English</option>
+                                            <option>France</option>
+                                            <option>Hebrew</option>
+                                            <option>Spain</option>
+                                            <option>Russian</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                    <label for="FormLangTo" class="col-5 col-form-label">Language to</label>
+                                    <div class="col-7">
+                                        <select id="FormLangTo" class="form-select" name="to">
+                                            <option>English</option>
+                                            <option>France</option>
+                                            <option>Hebrew</option>
+                                            <option>Spain</option>
+                                            <option>Russian</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mx-auto w-auto" id="startLoadButton">Load</button>
+                        </form>
+                    </div>
+
+                    <div id="fillNewDict" class="d-none container text-center mt-4">
+                            <form id='newDictTitle' class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="FormAuthor" class="col-5 col-form-label">Fill author</label>
+                                        <div class="col-7">
+                                            <input type="text" id="FormAuthor" class="form-control" name="author">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" id="startFullfillButton">Start fullfill</button>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="formDictNamer" class="col-5 col-form-label">Fill dict name</label>
+                                        <div class="col-7">
+                                            <input type="text" id="formDictNamer" class="form-control" name="name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="row mb-3">
+                                       <label for="FormLangFrom" class="col-5 col-form-label">Language from</label>
+                                        <div class="col-7">
+                                            <select id="FormLangFrom" class="form-select" name="from">
+                                                <option>English</option>
+                                                <option>France</option>
+                                                <option>Hebrew</option>
+                                                <option>Spain</option>
+                                                <option>Russian</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="FormLangTo" class="col-5 col-form-label">Language to</label>
+                                        <div class="col-7">
+                                            <select id="FormLangTo" class="form-select" name="to">
+                                                <option>English</option>
+                                                <option>France</option>
+                                                <option>Hebrew</option>
+                                                <option>Spain</option>
+                                                <option>Russian</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mx-auto w-auto" id="startFullfillButton">Start fullfill</button>
+                            </form>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-6 col-md-8 mx-auto">
-                                <form id="newWord" class="d-none">
-                                    <div class="container">
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="formLangTo">Source</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" id="fromWord" name="fromWord" class="form-control" />
-                                                </div>
-                                            </div>
+                        <div class="container text-center mt-4">
+                            <form id="newWord" class="d-none row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="formLangTo" class="col-5 col-form-label">Source</label>
+                                        <div class="col-7">
+                                            <input type="text" id="fromWord" name="fromWord" class="form-control" />
                                         </div>
-                                        <div class="form-group">
-                                            <div class="row mb-3 align-items-center">
-                                                <div class="col-4">
-                                                    <label for="formLangTo">Translate</label>
-                                                </div>
-                                                <div class="col-8">
-                                                    <input type="text" id="toWord" name="toWord" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary mb-5">Add</button>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="formLangTo" class="col-5 col-form-label">Translate</label>
+                                        <div class="col-7">
+                                            <input type="text" id="toWord" name="toWord" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                    <button type="submit" class="btn btn-primary mb-5 mx-auto w-auto">Add</button>
+                                </div>
+                            </form>
                         </div>
-                        <button class="btn btn-primary d-none mb-5" onclick="finishAndStart()" id="finishAndStart">Finish and start
+                        <button class="btn btn-primary d-none mb-5 mx-auto" onclick="finishAndStart()" id="finishAndStart">Finish and start
                             learning</button>
-                        <div id="wordList" class="container d-none"></div>
+                        <div id="wordList" class="container d-none flex-wrap"></div>
                     </div>
                 </div>
 
@@ -353,7 +308,6 @@
                     </div>
                 </div>
             </div>
-        </section>
     </main>
 
     <div id="imagesModal" class="modal fade modal-lg" tabindex="-1" role="dialog" aria-hidden="true">

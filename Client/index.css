@@ -9,9 +9,10 @@
     row-gap: 1em;
     margin: auto;
 }
- */
+*/
 
 .new-word-container {
+  /*
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -19,6 +20,9 @@
   align-items: center;
   row-gap: 10px;
   margin: auto;
+  */
+  flex: 1 1 auto;
+  margin-bottom: 3rem;
 }
 
 .block {

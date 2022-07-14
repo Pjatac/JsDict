@@ -5,8 +5,13 @@
     border: none;
 }
 
-.new-word-container,
 #dictsList button {
-    margin-bottom: 3rem;
+    width: auto;
+    margin: 1rem auto;
+}
+
+#wordList img {
+    max-width: 100%;
+    height: auto;
 }
 
