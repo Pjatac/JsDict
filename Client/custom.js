@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $('#spinner').hide();
+
     $('.nav-tabs a').on('click', function(){
         $(this).tab('show');
     });
@@ -8,3 +10,7 @@ $(document).ready(function(){
         $('.nav-tabs a[href="#learn"]').tab('show');
     });
 });
+
+$.fn.showFlex = function() {
+    this.css('display','flex');
+}

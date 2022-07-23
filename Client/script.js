@@ -111,12 +111,14 @@ async function getSearched(searchPath) {
 }
 
 async function startLearningLoaded(id) {
-    $('#spinner').removeClass('d-none');
+    //$('#spinner').removeClass('d-none');
+    $('#spinner').showFlex();
     let loadModal = $('<div>').dialog({ modal: true });
     loadModal.dialog('widget').hide();
     setProgress();
     //$('#select').addClass("d-none"); ///ean
-    goToTab('learn');
+    //goToTab('learn');
+    $('.nav-tabs a[href="#learn"]').tab('show');
     let requestPath = `${srvURL}getById?id=${id}`;
     let settings = {
         'cache': false,
@@ -175,7 +177,8 @@ async function startLearningLoaded(id) {
         $('.learn').removeClass('disabled');
         getNewWord();
         loadModal.dialog('close');
-        $('#spinner').addClass('d-none');
+        //$('#spinner').addClass('d-none');
+        $('#spinner').hide();
     })
         .fail(function (err) {
             alert('Sorry, you have network connection problem');
@@ -391,7 +394,8 @@ async function uploadNewDictAsync(newToLoadDict) {
 }
 
 async function fillImages(from, to, words) {
-    $('#spinner').removeClass('d-none');
+    //$('#spinner').removeClass('d-none');
+    $('#spinner').showFlex();
     for (const word of words) {
         let storedImg = await imgFromStorage(word.key(0), from);
         if (storedImg == null || storedImg == undefined) {
@@ -409,11 +413,13 @@ async function fillImages(from, to, words) {
             $('#imageSelectButton').off('click');
         }
     }
-    $('#spinner').addClass('d-none');
+    //$('#spinner').addClass('d-none');
+    $('#spinner').hide();
 }
 
 async function getImageFromUser(word) {
-    $('#spinner').removeClass('d-none');
+    //$('#spinner').removeClass('d-none');
+    $('#spinner').showFlex();
     imagesToSelectRefs = await getImages(word);
     let imagesDialog = $('#imagesModal');
     $('.dialog-title').text(word);
@@ -427,7 +433,8 @@ async function getImageFromUser(word) {
         }
         image.src = img.data;
     });
-    $('#spinner').addClass('d-none');
+    //$('#spinner').addClass('d-none');
+    $('#spinner').hide();
     return await showImageSelectDialog(imagesDialog);
 }
 
@@ -778,7 +785,7 @@ async function addNewWordToDictionaryView(img) {
     image.src = img;
     image.width = 100;
     container.append(image);
-    $('#wordList').append(container);
+    $('#wordList').prepend(container);
     $('#fromWord').val("");
     $('#toWord').val("");
 }

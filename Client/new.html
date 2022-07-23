@@ -56,10 +56,6 @@
     </header>
 
     <main>
-        <div class="spinner-border d-none" role="status" id="spinner">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-
         <div class="tab-content">
 
             <div id="home" class="tab-pane fade in active show">
@@ -192,54 +188,53 @@
                     </div>
 
                     <div id="fillNewDict" class="d-none container text-center mt-4">
-                            <form id='newDictTitle' class="row">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="row mb-3">
-                                        <label for="FormAuthor" class="col-5 col-form-label">Fill author</label>
-                                        <div class="col-7">
-                                            <input type="text" id="FormAuthor" class="form-control" name="author">
-                                        </div>
+                        <form id='newDictTitle' class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                    <label for="FormAuthor" class="col-5 col-form-label">Fill author</label>
+                                    <div class="col-7">
+                                        <input type="text" id="FormAuthor" class="form-control" name="author">
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="row mb-3">
-                                        <label for="formDictNamer" class="col-5 col-form-label">Fill dict name</label>
-                                        <div class="col-7">
-                                            <input type="text" id="formDictNamer" class="form-control" name="name">
-                                        </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                    <label for="formDictNamer" class="col-5 col-form-label">Fill dict name</label>
+                                    <div class="col-7">
+                                        <input type="text" id="formDictNamer" class="form-control" name="name">
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="row mb-3">
-                                       <label for="FormLangFrom" class="col-5 col-form-label">Language from</label>
-                                        <div class="col-7">
-                                            <select id="FormLangFrom" class="form-select" name="from">
-                                                <option>English</option>
-                                                <option>France</option>
-                                                <option>Hebrew</option>
-                                                <option>Spain</option>
-                                                <option>Russian</option>
-                                            </select>
-                                        </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                   <label for="FormLangFrom" class="col-5 col-form-label">Language from</label>
+                                    <div class="col-7">
+                                        <select id="FormLangFrom" class="form-select" name="from">
+                                            <option>English</option>
+                                            <option>France</option>
+                                            <option>Hebrew</option>
+                                            <option>Spain</option>
+                                            <option>Russian</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="row mb-3">
-                                        <label for="FormLangTo" class="col-5 col-form-label">Language to</label>
-                                        <div class="col-7">
-                                            <select id="FormLangTo" class="form-select" name="to">
-                                                <option>English</option>
-                                                <option>France</option>
-                                                <option>Hebrew</option>
-                                                <option>Spain</option>
-                                                <option>Russian</option>
-                                            </select>
-                                        </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="row mb-3">
+                                    <label for="FormLangTo" class="col-5 col-form-label">Language to</label>
+                                    <div class="col-7">
+                                        <select id="FormLangTo" class="form-select" name="to">
+                                            <option>English</option>
+                                            <option>France</option>
+                                            <option>Hebrew</option>
+                                            <option>Spain</option>
+                                            <option>Russian</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary mx-auto w-auto" id="startFullfillButton">Start fullfill</button>
-                            </form>
-                        </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mx-auto w-auto" id="startFullfillButton">Start fullfill</button>
+                        </form>
 
                         <div class="container text-center mt-4">
                             <form id="newWord" class="d-none row">
@@ -265,14 +260,14 @@
                         </div>
                         <button class="btn btn-primary d-none mb-5 mx-auto" onclick="finishAndStart()" id="finishAndStart">Finish and start
                             learning</button>
-                        <div id="wordList" class="container d-none flex-wrap"></div>
+                        <div id="wordList" class="container d-none flex-wrap text-center"></div>
                     </div>
                 </div>
 
                 <div id="learn" class="tab-pane fade in">
-                    <div id="dictTitle" class="lead"></div>
-                    <div class="d-flex flex-column">
-                        <div id="question" class="fs-4 fw-bold"></div>
+                    <div id="dictTitle" class="lead text-center"></div>
+                    <div class="d-flex justify-content-center">
+                        <div id="question" class="fs-4 fw-bold me-3"></div>
                         <div>
                             <button type="button" class="btn btn-primary btn-xs replay">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -299,10 +294,10 @@
                         <img id="failedImage" class="img-fluid img-thumbnail"></img>
                     </div>
                     <br style="margin: 5px 5px 5px 5px">
-                    <button id="next_word" onclick=getNewWord() class="btn btn-primary">
+                    <button id="next_word" onclick=getNewWord() class="btn btn-primary d-block mx-auto">
                         Next word
                     </button>
-                    <div>
+                    <div class="text-center">
                         Your current progress: Total <span id="total"></span>, Right <span id="right" style="color: green;"></span>,
                         Wrong <span id="wrong" style="color: red;"></span>
                     </div>
@@ -321,6 +316,12 @@
                 <button class="btn btn-primary" id="imageSelectButton">Select and close modal</button>
                 <!-- <button class="btn btn-primary" id="imageSelectButton" onclick="imageSelected()">Select and close modal</button> -->
             </div>
+        </div>
+    </div>
+
+    <div id="spinner" class="justify-content-center align-items-center position-absolute top-0 bg-secondary bg-gradient bg-opacity-25 w-100 h-100">
+        <div class="spinner-border" role="status" >
+            <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 
